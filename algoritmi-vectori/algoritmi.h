@@ -321,3 +321,40 @@ void testareInterclasare() {
 	cout << "\nVectorul rezultat este :\n\n";
 	afisare(z, d);
 }
+
+// |==========|
+// | SECVENTE |
+// |==========|
+
+// Secventa (pentru exemplu, secventa maxima de numere pare)
+
+void secventa(int x[], int& n, int& smax, int& dmax) {
+	smax = 1, dmax = 0;
+	for (int i = 0; i < n; i++) {
+		if (x[i] % 2 == 0) {
+			int j = i;
+			while (j + 1 < n && x[j + 1] % 2 == 0) {
+				j++;
+			}
+			if (j - i + 1 > dmax - smax + 1) {
+				smax = i, dmax = j;
+			}
+			i = j;
+		}
+	}
+}
+
+// Testare algoritm Secventa
+
+void testareSecventa() {
+	int x[100], n, smax, dmax;
+	citireMethod2(x, n);
+
+	secventa(x, n, smax, dmax);
+	cout << "Pentru vectorul :\n";
+	afisare(x, n);
+	cout << "\nSecventa maxima de numere pare este :\n";
+	for (int i = smax; i < dmax + 1; i++) {
+		cout << x[i] << " ";
+	}
+}
