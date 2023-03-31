@@ -1,0 +1,3 @@
+﻿  algoritmi-vectori.cpp
+D:\mycode\algoritmi-vectori\algoritmi-vectori\algoritmi.h(219): warning C4715: 'binarySearch': not all control paths return a value
+  algoritmi-vectori.vcxproj -> D:\mycode\algoritmi-vectori\x64\Debug\algoritmi-vectori.exe
