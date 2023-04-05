@@ -90,6 +90,25 @@ void bubbleSort(int x[], int n) {
 	} while (flag == false);
 }
 
+// Bubble Sort cu Santinela
+
+void sentinelBubbleSort(int x[], int n) {
+	int i = 0;
+	bool flag = true;
+	while (flag && i < n) {
+		flag = false;
+		for (int j = n - 1; j > i; j--) {
+			if (x[j - 1] > x[j]) {
+				int r = x[j - 1];
+				x[j - 1] = x[j];
+				x[j] = r;
+				flag = true;
+			}
+		}
+		i++;
+	}
+}
+
 // Merge Sort
 
 void merge(int x[], int min, int max, int mid) {
@@ -138,8 +157,9 @@ void mergeSort(int x[], int min, int max) {
 // Testare algoritmi Sorting
 
 void testareSorting() {
-	int x1[100], x2[100], x3[100], n1, n2, n3;
-	citireMethod1(x1, n1), citireMethod1(x2, n2), citireMethod1(x3, n3);
+	int x1[100], x2[100], x3[100], x4[100], n1, n2, n3, n4;
+	citireMethod1(x1, n1), citireMethod1(x2, n2);
+	citireMethod1(x3, n3), citireMethod1(x4, n4);
 
 	cout << "Metoda Selection Sort :\n\n";
 	selectionSort(x1, n1);
@@ -149,9 +169,13 @@ void testareSorting() {
 	bubbleSort(x2, n2);
 	afisare(x2, n2);
 
-	cout << "\nMetoda Merge Sort :\n\n";
-	mergeSort(x3, 0, n3 - 1);
+	cout << "\nMetoda Bubble Sort cu Santinela :\n\n";
+	sentinelBubbleSort(x3, n3);
 	afisare(x3, n3);
+
+	cout << "\nMetoda Merge Sort :\n\n";
+	mergeSort(x4, 0, n4 - 1);
+	afisare(x4, n4);
 }
 
 // |=====================|
